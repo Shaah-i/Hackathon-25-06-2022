@@ -1,8 +1,8 @@
-Query 1
+Query 1 : List the month name and number of employees hired in each month and ignore the year factor
 
 SELECT DATENAME(month, HireDate) AS "MONTHNAME", count(format(HireDate, 'MM')) FROM AdventureWorks2019.HumanResources.Employee group by DATENAME(month, HireDate);
 
-Query 2
+Query 2 : List department name, and the number of employees hired in each department year-wise.
 
 SELECT Name, HireDate FROM (SELECT m.Name,m.DepartmentID,n.BusinessEntityID FROM [AdventureWorks2019].[HumanResources].[Department] AS m INNER JOIN [AdventureWorks2019].[HumanResources].[EmployeeDepartmentHistory] AS n ON m.DepartmentID=n.DepartmentID ) AS dept 
 INNER JOIN [AdventureWorks2019].[HumanResources].[Employee] AS emp ON dept.BusinessEntityID=emp.BusinessEntityID;
